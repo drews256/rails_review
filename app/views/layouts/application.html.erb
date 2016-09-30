@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rails Review</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class = row>
+  <div class="col-md-10 col-md-offset-1">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <%= link_to "Rails Review Page", root_path, class: "navbar-brand logo-text" %>
+        <% if !current_user %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn", id:"sign-up-btn"%>
+        <% end %>
+        <% if current_user %>
+            <%= link_to "Sign Out", destroy_user_session_path, :method=>'delete', class: "btn btn-danger navbar-btn pull-right", id:"sign-out-btn" %>
+        <% else %>
+            <%= link_to "Sign In", "#logInModal", "data-toggle" => "modal", class:"btn btn-primary", id:"sign-in-btn" %>
+        <% end %>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<%= yield %>
+
+<%= render "shared/login_modal" %>
+
+</body>
+</html>

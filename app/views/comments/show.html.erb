@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class=row>
+  <div class="col-md-8 col-md-offset-2">
+<p>
+  <strong>Comment:</strong>
+  <%= @comment.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment), class:"btn btn-default" %>
+<%= link_to 'Comments', comments_path, class:"btn btn-default" %>
+</div>
+  </div>
